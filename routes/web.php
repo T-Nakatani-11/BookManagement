@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// 書籍一覧表示
+Route::get('/', 'BookController@showList')->name('books');
 });
