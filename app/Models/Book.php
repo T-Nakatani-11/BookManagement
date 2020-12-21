@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-//    use HasFactory;
+    use HasFactory;
     // テーブル名
     protected $table = 'books';
 
@@ -16,6 +16,5 @@ class Book extends Model
     [
         'title',
         'content'
-    ]
-
+    ];
 }
