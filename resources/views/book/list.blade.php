@@ -7,16 +7,14 @@
         <table class="table table-striped">
             <tr>
                 <th>書籍番号</th>
-                <th>日付</th>
                 <th>タイトル</th>
-                <th>内容</th>
+                <th>日付</th>
             </tr>
             @foreach($books as $book)
             <tr>
                 <td>{{$book->id}}</td>
+                <td><a href="/book/{{$book->id}}">{{$book->title}}</a></td>
                 <td>{{$book->updated_at}}</td>
-                <td>{{$book->title}}</td>
-                <td>{{$book->content}}</td>
             </tr>
             @endforeach
         </table>
