@@ -3,7 +3,9 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h2>書籍</h2>
+        <h2>{{$book->title}}</h2>
+        <span>作成日：{{$book->created_at}}</span>
+        <span>更新日：{{$book->updated_at}}</span>
         <table class="table table-striped">
             <tr>
                 <th>内容</th>
