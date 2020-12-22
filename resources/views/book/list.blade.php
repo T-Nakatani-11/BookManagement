@@ -6,17 +6,19 @@
         <h2>書籍一覧</h2>
         <table class="table table-striped">
             <tr>
-                <th>記事番号</th>
+                <th>書籍番号</th>
                 <th>日付</th>
                 <th>タイトル</th>
-                <th></th>
+                <th>内容</th>
             </tr>
+            @foreach($books as $book)
             <tr>
-                <td>1</td>
-                <td>2020/06/30</td>
-                <td>テスト</td>
-                <td></td>
+                <td>{{$book->id}}</td>
+                <td>{{$book->updated_at}}</td>
+                <td>{{$book->title}}</td>
+                <td>{{$book->content}}</td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>
