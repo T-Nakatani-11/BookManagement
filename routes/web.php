@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 // 書籍一覧表示
 Route::get('/', 'App\Http\Controllers\BookController@showList')->name('books');
+
+// 書籍詳細表示
+Route::get('/book/{id}', 'App\Http\Controllers\BookController@showDetail')->name('detail');

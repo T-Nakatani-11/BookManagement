@@ -17,4 +17,21 @@ class BookController extends Controller
         $books = Book::all();
         return view('book.list', ['books' => $books]);
     }
+
+    /**
+     * 書籍詳細表示
+     * @param int $id
+     * @return view
+     */
+    public function showDetail($id)
+    {
+        $book = Book::find($id);
+        if(is_null($book)){
+            // エラーメッセージ
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('books'));
+        }
+        return view('book.detail', ['book' => $book]);
+    }
+
 }
