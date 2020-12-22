@@ -23,12 +23,12 @@ class BookController extends Controller
      * @param int $id
      * @return view
      */
-    public function showList($id)
+    public function showDetail($id)
     {
         $book = Book::find($id);
         if(is_null($book)){
             // エラーメッセージ
-            \Session::flash('err_msg', 'データがありません。')
+            \Session::flash('err_msg', 'データがありません。');
             return redirect(route('books'));
         }
         return view('book.detail', ['book' => $book]);

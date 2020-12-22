@@ -5,7 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
         <h2>書籍一覧</h2>
         @if(session('err_msg'))
-        <p class="text-danger">{{session('err_msg')}</p>
+            <p class="text-danger">{{session('err_msg')}}</p>
         @endif
         <table class="table table-striped">
             <tr>
