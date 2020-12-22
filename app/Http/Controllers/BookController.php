@@ -29,7 +29,7 @@ class BookController extends Controller
         if(is_null($book)){
             // エラーメッセージ
             \Session::flash('err_msg', 'データがありません。')
-            return redirect(route('blogs'));
+            return redirect(route('books'));
         }
         return view('book.detail', ['book' => $book]);
     }
