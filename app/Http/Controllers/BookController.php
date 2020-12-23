@@ -34,4 +34,12 @@ class BookController extends Controller
         return view('book.detail', ['book' => $book]);
     }
 
+    /**
+     * 書籍登録画面表示
+     * @return view
+     */
+    public function showCreate()
+    {
+        return view('book.form');
+    }
 }
