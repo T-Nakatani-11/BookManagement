@@ -42,4 +42,18 @@ class BookController extends Controller
     {
         return view('book.form');
     }
+
+    /**
+     * 書籍登録
+     * @return view
+     */
+    public function exeStore(Request $request)
+    {
+        // 書籍のデータを受け取る
+        $inputs = $request->all();
+        // 書籍登録
+        Book::create($inputs);
+        \Session::flash('err_msg', '書籍を登録しました。');        
+        return redirect(route('books'));
+    }
 }
