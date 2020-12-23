@@ -5,6 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
         <h2>書籍投稿</h2>
         <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()">
+        @csrf
             <div class="form-group">
                 <label for="title">
                     タイトル

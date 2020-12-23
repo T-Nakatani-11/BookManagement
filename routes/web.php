@@ -20,7 +20,7 @@ Route::get('/', 'App\Http\Controllers\BookController@showList')->name('books');
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@showDetail')->name('detail');
 
 // 書籍登録画面表示
-Route::get('/book/create/{id}', 'App\Http\Controllers\BookController@showCreate')->name('create');
+Route::get('/book/create', 'App\Http\Controllers\BookController@showCreate')->name('create');
 
 // 書籍登録
 Route::post('/book/store', 'App\Http\Controllers\BookController@exeStore')->name('store');
