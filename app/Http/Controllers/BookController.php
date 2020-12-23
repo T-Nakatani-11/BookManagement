@@ -52,8 +52,16 @@ class BookController extends Controller
     {
         // 書籍のデータを受け取る
         $inputs = $request->all();
-        // 書籍登録
-        Book::create($inputs);
+        
+        \DB::beginTransaction();
+        try {
+            // 書籍登録
+            Book::create($inputs);
+            \DB::commit();
+        } catch(\Throwwable $e) {
+            \DB::rollback();
+            abort(500);
+        }
         \Session::flash('err_msg', '書籍を登録しました。');        
         return redirect(route('books'));
     }
