@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\HTTP\Requests\BookRequest;
 
 class BookController extends Controller
 {
@@ -47,7 +48,7 @@ class BookController extends Controller
      * 書籍登録
      * @return view
      */
-    public function exeStore(Request $request)
+    public function exeStore(BookRequest $request)
     {
         // 書籍のデータを受け取る
         $inputs = $request->all();
