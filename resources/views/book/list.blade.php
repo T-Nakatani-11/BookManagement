@@ -12,12 +12,14 @@
                 <th>書籍番号</th>
                 <th>タイトル</th>
                 <th>日付</th>
+                <th></th>
             </tr>
             @foreach($books as $book)
             <tr>
                 <td>{{$book->id}}</td>
                 <td><a href="/book/{{$book->id}}">{{$book->title}}</a></td>
                 <td>{{$book->updated_at}}</td>
+                <td><button type="button" class="btn btn-primary" onClick="location.href='/book/edit/{{$book->id}}'">編集</button></td>
             </tr>
             @endforeach
         </table>
