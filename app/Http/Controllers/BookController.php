@@ -82,4 +82,32 @@ class BookController extends Controller
         return view('book.edit', ['book' => $book]);
     }
 
+    /**
+     * 書籍更新
+     * @return view
+     */
+    public function exeUpdate(BookRequest $request)
+    {
+        // 書籍のデータを受け取る
+        $inputs = $request->all();
+        
+        \DB::beginTransaction();
+        try {
+            // 書籍更新
+            $book = Book::find($inputs['id']);
+            $book->fill([
+                'title'   => $inputs['title'],
+                'content' => $inputs['content']
+            ]);
+            \DB::commit();
+        } catch(\Throwwable $e) {
+            \DB::rollback();
+            abort(500);
+        }
+        \Session::flash('err_msg', '書籍を更新しました。');        
+        return redirect(route('books'));
+    }
+
+
+
 }

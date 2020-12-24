@@ -6,6 +6,7 @@
         <h2>書籍編集</h2>
         <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
         @csrf
+            <input type="hidden" name ="id" value="{{$book->id}}">
             <div class="form-group">
                 <label for="title">
                     タイトル
