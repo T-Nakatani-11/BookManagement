@@ -58,7 +58,7 @@ class BookController extends Controller
             // 書籍登録
             Book::create($inputs);
             \DB::commit();
-        } catch(\Throwwable $e) {
+        } catch(\Throwable $e) {
             \DB::rollback();
             abort(500);
         }
@@ -99,15 +99,13 @@ class BookController extends Controller
                 'title'   => $inputs['title'],
                 'content' => $inputs['content']
             ]);
+            $book->save();
             \DB::commit();
-        } catch(\Throwwable $e) {
+        } catch(\Throwable $e) {
             \DB::rollback();
             abort(500);
         }
         \Session::flash('err_msg', '書籍を更新しました。');        
         return redirect(route('books'));
     }
-
-
-
 }

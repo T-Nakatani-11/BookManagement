@@ -27,7 +27,7 @@ Route::post('/book/store', 'App\Http\Controllers\BookController@exeStore')->name
 Route::get('/book/edit/{id}', 'App\Http\Controllers\BookController@showEdit')->name('edit');
 
 // 書籍登録
-Route::post('/book/update', 'BookController@exeUpdate')->name('update');
+Route::post('/book/update', 'App\Http\Controllers\BookController@exeUpdate')->name('update');
 
 // 書籍詳細表示
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@showDetail')->name('detail');
