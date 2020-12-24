@@ -65,4 +65,21 @@ class BookController extends Controller
         \Session::flash('err_msg', '書籍を登録しました。');        
         return redirect(route('books'));
     }
+
+    /**
+     * 書籍編集表示
+     * @param int $id
+     * @return view
+     */
+    public function showEdit($id)
+    {
+        $book = Book::find($id);
+        if(is_null($book)){
+            // エラーメッセージ
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('books'));
+        }
+        return view('book.edit', ['book' => $book]);
+    }
+
 }
