@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ Route::get('/book/create', 'App\Http\Controllers\BookController@showCreate')->na
 
 // 書籍登録
 Route::post('/book/store', 'App\Http\Controllers\BookController@exeStore')->name('store');
+
+// 書籍編集表示
+Route::get('/book/edit/{id}', 'App\Http\Controllers\BookController@showEdit')->name('edit');
+
+// 書籍登録
+Route::post('/book/update', 'BookController@exeUpdate')->name('update');
 
 // 書籍詳細表示
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@showDetail')->name('detail');
