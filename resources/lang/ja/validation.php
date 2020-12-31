@@ -147,7 +147,7 @@ return [
     */
 
     'attributes' => [
-        'title' => 'メールアドレス',
+        'title' => 'タイトル',
         'content' => '書籍内容'
     ],
 
