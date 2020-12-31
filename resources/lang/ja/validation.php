@@ -146,6 +146,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'メールアドレス',
+        'content' => '書籍内容'
+    ],
 
 ];
