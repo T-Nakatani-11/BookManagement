@@ -14,6 +14,12 @@
             <tr>
                 <td>{{$book->content}}</td>
             </tr>
+            <tr>
+                <th>画像</th>
+            </tr>
+            <tr>
+                <td>{{$book->image}}</td>
+            </tr>
         </table>
     </div>
 </div>

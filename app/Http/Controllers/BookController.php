@@ -58,6 +58,13 @@ class BookController extends Controller
             // 書籍登録
             Book::create($inputs);
             \DB::commit();
+
+            $uploaded_image = $request->file('books_image');
+            if($request->hasFile('books_image') && $uploaded_image->isValid()){
+                $file_name = $request->file('books_image')->getClientOriginalNane();
+                $pass = $request->file('books_image')->storeAs('books',$file_name);
+            }
+
         } catch(\Throwable $e) {
             \DB::rollback();
             abort(500);
