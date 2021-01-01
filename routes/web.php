@@ -26,6 +26,10 @@ Route::post('/book/store', 'App\Http\Controllers\BookController@exeStore')->name
 // 書籍編集表示
 Route::get('/book/edit/{id}', 'App\Http\Controllers\BookController@showEdit')->name('edit');
 
+// 書籍削除表示
+Route::get('/book/delete/{id}', 'App\Http\Controllers\BookController@exeDelete')->name('delete');
+
+
 // 書籍登録
 Route::post('/book/update', 'App\Http\Controllers\BookController@exeUpdate')->name('update');
 
