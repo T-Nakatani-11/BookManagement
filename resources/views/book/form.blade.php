@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>書籍投稿</h2>
-        <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label for="title">
@@ -39,6 +39,7 @@
                     </div>
                 @endif
             </div>
+            <input type="file" name="image">
             <div class="mt-5">
                 <a class="btn btn-secondary" href="{{ route('books') }}">
                     キャンセル
