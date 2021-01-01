@@ -108,4 +108,26 @@ class BookController extends Controller
         \Session::flash('err_msg', '書籍を更新しました。');        
         return redirect(route('books'));
     }
+
+    /**
+     * 書籍削除
+     * @param int $id
+     * @return view
+     */
+    public function exeDelete($id)
+    {
+        if(empty($id)){
+            // エラーメッセージ
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('books'));                
+        }
+        try {
+            // 書籍削除
+            Book::destroy($id);
+        } catch(\Throwable $e) {
+            abort(500);
+        }
+        \Session::flash('err_msg', '削除しました。');
+        return redirect(route('books'));
+    }
 }
