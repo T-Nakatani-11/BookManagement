@@ -52,19 +52,32 @@ class BookController extends Controller
     {
         // 書籍のデータを受け取る
         $inputs = $request->all();
-        
+
         \DB::beginTransaction();
+
+        // if ($file = $request->image) {
+        //     $fileName = time() . $file->getClientOriginalName();
+        //     $target_path = $request->file('image'->storeAs('image',$fileName));
+        //     $file->move($target_path, $fileName);
+        // } else {
+        //     $fileName = "";
+        // }
+
         try {
             // 書籍登録
             Book::create($inputs);
-            \DB::commit();
-
-            $uploaded_image = $request->file('books_image');
-            if($request->hasFile('books_image') && $uploaded_image->isValid()){
-                $file_name = $request->file('books_image')->getClientOriginalNane();
-                $pass = $request->file('books_image')->storeAs('books',$file_name);
+            if ($file = $request->image) {
+                $fileName = time() . $file->getClientOriginalName();
+                $target_path = $request->file('image'->storeAs('image',$fileName));
+                $file->move($target_path, $fileName);
+                Book::insert([
+                    "image" => $target_path
+                   ]);
+            } else {
+                $fileName = "";
             }
 
+            \DB::commit();
         } catch(\Throwable $e) {
             \DB::rollback();
             abort(500);
@@ -104,7 +117,8 @@ class BookController extends Controller
             $book = Book::find($inputs['id']);
             $book->fill([
                 'title'   => $inputs['title'],
-                'content' => $inputs['content']
+                'content' => $inputs['content'],
+                'image' => $inputs['image']
             ]);
             $book->save();
             \DB::commit();

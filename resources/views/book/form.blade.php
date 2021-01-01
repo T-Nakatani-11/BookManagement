@@ -41,7 +41,7 @@
             </div>
             <input type="file" name="image">
             <div class="mt-5">
-                <a class="btn btn-secondary" href="{{ route('books') }}">
+                <a class="btn btn-secondary" href="uploads/{{ route('books') }}">
                     キャンセル
                 </a>
                 <button type="submit" class="btn btn-primary">

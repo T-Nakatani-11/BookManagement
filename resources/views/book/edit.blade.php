@@ -40,7 +40,15 @@
                     </div>
                 @endif
             </div>
-            <input type="file" name="books_image">
+            <div class="form-group">
+                <label for="image">
+                    画像
+                </label>
+                <label>
+                    {{ $book->image }}
+                </label>
+            </div>
+            <input type="file" name="image">
             <div class="mt-5">
                 <a class="btn btn-secondary" href="{{ route('books') }}">
                     キャンセル
