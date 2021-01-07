@@ -18,7 +18,7 @@
                 <th>画像</th>
             </tr>
             <tr>
-                <td><img src="asset('storage/' . $filename)" width="200" height="130"></td>
+                <td><img src={{ asset("storage/image/$book->image") }} width="200" height="130"></td>
             </tr>
         </table>
     </div>

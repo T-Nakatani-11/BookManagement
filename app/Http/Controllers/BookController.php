@@ -52,37 +52,22 @@ class BookController extends Controller
     {
         // 書籍のデータを受け取る
         $inputs = $request->all();
-
+        if ($inputs['image']->isValid()) {
+            $book = new Book;
+            $filename = $inputs['image']->store('public/image');
+            $path = basename($filename);
+            $inputs['image'] = $path;
+          }
+        //   dd($inputs);
         \DB::beginTransaction();
-
-        // if ($file = $request->image) {
-        //     $fileName = time() . $file->getClientOriginalName();
-        //     $target_path = $request->file('image'->storeAs('image',$fileName));
-        //     $file->move($target_path, $fileName);
-        // } else {
-        //     $fileName = "";
-        // }
-
         try {
-            // 書籍登録
             Book::create($inputs);
-            if ($file = $request->image) {
-                $fileName = time() . $file->getClientOriginalName();
-                $target_path = $request->file('image'->storeAs('image',$fileName));
-                $file->move($target_path, $fileName);
-                Book::insert([
-                    "image" => $target_path
-                   ]);
-            } else {
-                $fileName = "";
-            }
-
             \DB::commit();
         } catch(\Throwable $e) {
             \DB::rollback();
-            abort(500);
+            abort(400);
         }
-        \Session::flash('err_msg', '書籍を登録しました。');        
+        \Session::flash('err_msg', '書籍を登録しました。');
         return redirect(route('books'));
     }
 
