@@ -39,7 +39,7 @@
                     </div>
                 @endif
             </div>
-            <input type="file" name="image">
+            <input type="file" name="image" enctype="multipart/form-data">
             <div class="mt-5">
                 <a class="btn btn-secondary" href="uploads/{{ route('books') }}">
                     キャンセル

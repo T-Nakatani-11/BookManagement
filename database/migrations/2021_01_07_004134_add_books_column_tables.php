@@ -14,7 +14,8 @@ class AddBooksColumnTables extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            // カラム追加
+            $table->string('image');
         });
     }
 
@@ -26,7 +27,8 @@ class AddBooksColumnTables extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            // カラム削除
+            $table->dropColumn('image');
         });
     }
 }
