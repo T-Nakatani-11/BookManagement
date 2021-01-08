@@ -44,9 +44,8 @@
                 <label for="image">
                     画像
                 </label>
-                <label>
-                    {{ $book->image }}
-                </label>
+                <br>
+                <img src={{ asset("storage/image/$book->image") }} width="200" height="130">
             </div>
             <input type="file" name="image">
             <div class="mt-5">

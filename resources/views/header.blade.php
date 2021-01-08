@@ -6,7 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="{{route('books')}}">書籍一覧 <span class="sr-only"></span></a>
-      <a class="nav-item nav-link" href="{{route('create')}}">書籍追加</a>
+      <a class="nav-item nav-link" href="{{route('create')}}" >書籍追加</a>
+    </dev>
+    <div class="col-md-6">
+    <div id="custom-search-input">
+      <div class="input-group col-md-12">
+        <input type="text" class="form-control input-lg" placeholder="書類名を入力してください" size="100" style="height:3em"/>
+        <span class="input-group-btn">
+          <button class="btn btn-info btn-lg" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </span>
+      </div>
     </div>
-  </div>
+	</div>
+</div>
 </nav>
