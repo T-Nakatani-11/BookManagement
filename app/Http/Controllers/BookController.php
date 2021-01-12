@@ -149,4 +149,24 @@ class BookController extends Controller
         \Session::flash('err_msg', '削除しました。');
         return redirect(route('books'));
     }
+
+    /**
+     * 書籍検索
+     * @param int $id
+     * @return view
+     */
+    public function exeSearch(Request $request)
+    {
+        $inputs = $request->all();
+        $keyword = $inputs['search'];
+
+        #クエリ生成
+        $query = Book::query(); 
+        $books = $query->where('title','like','%'.$keyword.'%')->orWhere('content','like','%'.$keyword.'%')->get();
+        
+        if($books === ""){
+            \Session::flash('err_msg', '一致しませんでした。');
+        }
+        return view('book.list', ['books' => $books]);
+    }
 }
