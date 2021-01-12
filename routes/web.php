@@ -31,5 +31,8 @@ Route::post('/book/update', 'App\Http\Controllers\BookController@exeUpdate')->na
 // 書籍削除
 Route::post('/book/delete/{id}', 'App\Http\Controllers\BookController@exeDelete')->name('delete');
 
+// 書籍検索
+Route::post('/book/search', 'App\Http\Controllers\BookController@exeSearch')->name('search');
+
 // 書籍詳細表示
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@showDetail')->name('detail');

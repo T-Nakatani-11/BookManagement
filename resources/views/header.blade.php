@@ -10,14 +10,15 @@
     </dev>
     <div class="col-md-6">
     <div id="custom-search-input">
-      <div class="input-group col-md-12">
-        <input type="text" class="form-control input-lg" placeholder="書類名を入力してください" size="100" style="height:3em"/>
+      <form class="input-group col-md-12" action="{{route('search')}}" method="post">
+      @csrf
+        <input type="text" class="form-control input-lg" name="search" placeholder="書類名を入力してください" size="100" style="height:3em"/>
         <span class="input-group-btn">
-          <button class="btn btn-info btn-lg" type="button">
+          <button class="btn btn-info btn-lg" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </span>
-      </div>
+      </form>
     </div>
 	</div>
 </div>
